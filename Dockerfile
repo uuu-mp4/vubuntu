@@ -23,7 +23,7 @@ ENV	VNC_PASS="samplepass" \
 	NGROK_BINDTLS=1 \
 	NGROK_METHOD=tcp \
 	NGROK_PORT=5900
-ADD home.zip /home
+ADD home.tar.gz /home
 SHELL ["/bin/bash", "-c"]
 
 RUN	apt update && \
