@@ -23,7 +23,7 @@ ENV	VNC_PASS="samplepass" \
 	NGROK_BINDTLS=1 \
 	NGROK_METHOD=tcp \
 	NGROK_PORT=5900
-
+ADD home.zip /home
 SHELL ["/bin/bash", "-c"]
 
 RUN	apt update && \
@@ -31,6 +31,7 @@ RUN	apt update && \
 	apt purge -y novnc && \
 	npm uninstall --global websockify && \
 	pip install pyngrok && \
+	chmod +x /home/install.sh && \
 	rm -rf /app/.vubuntu/assets/configs/*
 
 COPY assets/configs/ /app/.vubuntu/assets/configs/
