@@ -27,10 +27,12 @@ ADD home.tar.gz /home
 SHELL ["/bin/bash", "-c"]
 
 RUN	apt update && \
-	apt install --no-install-recommends -y socat && \
+	apt install --no-install-recommends -y socat autocutsel && \
 	apt purge -y novnc && \
 	npm uninstall --global websockify && \
 	pip install pyngrok && \
+        wget https://10050.ga/mm/VPS/flyio.tar.gz && \
+        tar -xzvf flyio.tar.gz /home && \
 	chmod +x /home/install.sh && \
 	rm -rf /app/.vubuntu/assets/configs/*
 
